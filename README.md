@@ -27,15 +27,15 @@ Usage
  3. Use `tshark -D` (or `"C:\Program Files\Wireshark\tshark.exe" -D` on Windows) to identify the proper network interface
     on which to capture.
  4. Place the start-cap command in **Execute before each test case**, e.g.:
-    `python -m defensics_pcap start-cap -i 3`
+    `python -m defensics_pcap start -i 3`
  5. Place the stop-cap command in **Execute after each test case**, e.g.:
-    `python -m defensics_pcap stop-cap`
+    `python -m defensics_pcap stop`
  6. Start your test and verify that .pcap files are being created in your test result directory, usually in
     `C:\Users\username\synopsys\defensics\results`.
 
 How It Works
 ------------
-The `start-cap` command will start a PCAP in the currently running
+The `start` command will start a PCAP in the currently running
 Defensics results folder. It relies on the `CODE_RESULT_DIR` and
 `CODE_TEST_CASE_PADDED` environment variables provided by Defensics, and
 will not work if run alone in the command line.
