@@ -4,7 +4,7 @@ The unofficial defensics-pcap tool provides per-case packet capture functionalit
 
 Prerequisites
 -------------
-Wireshark and Python.
+`tshark` (bundled with Wireshark in Windows) and Python.
 
 Install
 -------
@@ -40,11 +40,11 @@ Defensics results folder. It relies on the `CODE_RESULT_DIR` and
 `CODE_TEST_CASE_PADDED` environment variables provided by Defensics, and
 will not work if run alone in the command line.
 
-`start-cap` looks for the `tshark` application in your operating system
+`start` looks for the `tshark` application in your operating system
 PATH and also in the default location `C:\Program Files\Wireshark\tshark.exe`.
 If you do not have tshark available via the PATH variable, you can
-include a full path via the `start-cap` `--tshark-full-path` argument.
-See `python -m defensics_pcap start-cap --help`.
+include a full path via the `start` `--tshark-full-path` argument.
+See `python -m defensics_pcap start --help`.
 
 `stop_cap.py` will stop the PCAP using the process ID value stored
 temporarily in the Defensics results folder.

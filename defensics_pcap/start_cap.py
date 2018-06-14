@@ -2,6 +2,7 @@ import distutils.spawn
 import logging
 import os
 import platform
+import stat
 import subprocess
 import sys
 import time
@@ -23,6 +24,7 @@ def main(interface, tshark_full_path=None):
     with open(pid_filename, 'w') as f:
         f.write(pid)
     pend_on_file(filename=pcap_filename)
+    os.chmod(pcap_filename, os.stat(pcap_filename).st_mode | stat.S_IRGRP | stat.S_IROTH)
 
 
 def find_tshark(tshark_full_path_arg=None):
