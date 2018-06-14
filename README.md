@@ -26,10 +26,10 @@ Usage
  2. Click **External**.
  3. Use `tshark -D` (or `"C:\Program Files\Wireshark\tshark.exe" -D` on Windows) to identify the proper network interface
     on which to capture.
- 4. Place the start command in **Execute before each test case**, e.g.:
-    `python -m defensics_buddy start -i 3` (the `-i` argument accepts interfaces names or numbers)
- 5. Place the stop command in **Execute after each test case**, e.g.:
-    `python -m defensics_buddy stop`
+ 4. Place the start-cap command in **Execute before each test case**, e.g.:
+    `python -m defensics_pcap start -i 3`
+ 5. Place the stop-cap command in **Execute after each test case**, e.g.:
+    `python -m defensics_pcap stop`
  6. Start your test and verify that .pcap files are being created in your test result directory, usually in
     `C:\Users\username\synopsys\defensics\results`.
 
@@ -44,7 +44,7 @@ will not work if run alone in the command line.
 PATH and also in the default location `C:\Program Files\Wireshark\tshark.exe`.
 If you do not have tshark available via the PATH variable, you can
 include a full path via the `start` `--tshark-full-path` argument.
-See `python -m defensics_buddy start --help`.
+See `python -m defensics_pcap start --help`.
 
 `stop_cap.py` will stop the PCAP using the process ID value stored
 temporarily in the Defensics results folder.
