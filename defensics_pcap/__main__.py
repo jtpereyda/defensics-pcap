@@ -10,7 +10,7 @@ TSHARK_DEFAULT_PATH = os.path.join('C:', os.sep, 'Program Files', 'Wireshark', '
 HELP_TEXT_MAIN = 'Automation assistance for Defensics'
 HELP_TEXT_START_CAP = 'Start a packet capture; designed for use with Defensics'
 HELP_TEXT_STOP_CAP = 'Stop a packet capture (designed for use in Defensics)'
-HELP_INTERFACE_ARG = 'Interface on which to capture. Use tshark -D to see a list of interfaces.'
+HELP_INTERFACE_ARG = 'Interface name or number on which to capture. Use tshark -D to see a list of interfaces.'
 HELP_TSHARK_FULL_PATH_ARG = 'Full path to tshark executable. ' \
                             'Use when tshark is not available in the PATH ' \
                             'AND the default value ({0}) is not valid on your system.'.format(TSHARK_DEFAULT_PATH)
@@ -24,7 +24,7 @@ def main():
     subparsers = parser.add_subparsers(dest='subcommand_name')
 
     parser_start_cap = subparsers.add_parser("start", help=HELP_TEXT_START_CAP)
-    parser_start_cap.add_argument('--interface', '-i', help=HELP_INTERFACE_ARG, type=int, required=True)
+    parser_start_cap.add_argument('--interface', '-i', help=HELP_INTERFACE_ARG, type=str, required=True)
     parser_start_cap.add_argument('--tshark-full-path', help=HELP_TSHARK_FULL_PATH_ARG, type=str, default=None)
 
     subparsers.add_parser("stop", help=HELP_TEXT_STOP_CAP)

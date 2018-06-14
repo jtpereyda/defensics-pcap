@@ -27,7 +27,7 @@ Usage
  3. Use `tshark -D` (or `"C:\Program Files\Wireshark\tshark.exe" -D` on Windows) to identify the proper network interface
     on which to capture.
  4. Place the start command in **Execute before each test case**, e.g.:
-    `python -m defensics_buddy start -i 3`
+    `python -m defensics_buddy start -i 3` (the `-i` argument accepts interfaces names or numbers)
  5. Place the stop command in **Execute after each test case**, e.g.:
     `python -m defensics_buddy stop`
  6. Start your test and verify that .pcap files are being created in your test result directory, usually in
