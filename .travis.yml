@@ -3,7 +3,7 @@ language: python
 install: pip install tox
 
 script:
-- tox
+- tox --recreate
 
 deploy:
   provider: pypi
