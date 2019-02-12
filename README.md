@@ -4,10 +4,12 @@ The unofficial defensics-pcap tool provides per-case packet capture functionalit
 
 Prerequisites
 -------------
+
 `tshark` (bundled with Wireshark in Windows) and Python.
 
 Install
 -------
+
 The following command may need to be run as sudo (Linux) or in an
 Administrator command prompt (Windows):
 
@@ -22,19 +24,39 @@ tool.
 
 Usage
 -----
- 1. In Defensics, click **4) Instrumentation**.
- 2. Click **External**.
- 3. Use `tshark -D` (or `"C:\Program Files\Wireshark\tshark.exe" -D` on Windows) to identify the proper network interface
+
+### Defensics GUI
+
+1. In Defensics, click **4) Instrumentation**.
+2. Click **External**.
+3. Use `tshark -D` (or `"C:\Program Files\Wireshark\tshark.exe" -D` on Windows) to identify the proper network interface
     on which to capture.
- 4. Place the start-cap command in **Execute before each test case**, e.g.:
-    `python -m defensics_pcap start -i 3`
- 5. Place the stop-cap command in **Execute after each test case**, e.g.:
-    `python -m defensics_pcap stop`
- 6. Start your test and verify that .pcap files are being created in your test result directory, usually in
+4. Place the start-cap command in **Execute before each test case**, e.g.:
+
+    ```
+    python -m defensics_pcap start -i eth1
+    ```
+
+5. Place the stop-cap command in **Execute after each test case**, e.g.:
+
+    ```
+    python -m defensics_pcap stop
+    ```
+
+6. Start your test and verify that .pcap files are being created in your test result directory, usually in
     `C:\Users\username\synopsys\defensics\results`.
+
+### Defensics CLI
+
+Example arguments:
+
+```
+--exec-pre-test-case 'python -m defensics_pcap start -i eth1' --exec-post-test-case 'python -m defensics_pcap stop' 
+```
 
 How It Works
 ------------
+
 The `start` command will start a PCAP in the currently running
 Defensics results folder. It relies on the `CODE_RESULT_DIR` and
 `CODE_TEST_CASE_PADDED` environment variables provided by Defensics, and
